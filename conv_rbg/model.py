@@ -1,4 +1,3 @@
-# conv to pull out patches of colour
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Flatten, Rescaling, Resizing
 from tensorflow.keras import Input, Model
