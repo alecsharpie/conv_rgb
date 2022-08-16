@@ -35,4 +35,4 @@ create a 3x3 grid of 9 colour patches
 3 channels (R, G, B) for each patch
 total 27 colour features
 
-![n_cut Example](https://github.com/alecsharpie/conv_rgb/blob/master/n_cuts_example.png)
+![n_cut Example](https://github.com/alecsharpie/conv_rgb/blob/master/n_cuts_example.png?raw=true)
