@@ -13,7 +13,7 @@ class ConvRGB:
     rescaling = whether the image needs to be scaled between 0 and 1 ie divide by 255
     """
     def __init__(self, input_shape, n_cut, rescaling = False):
-        self.input_shape = input_shape
+        self.input_shape = (input_shape[0], input_shape[0], 3)
         self.n_cut = n_cut
         self.rescaling = rescaling
         #self.resize_shape = resize_shape

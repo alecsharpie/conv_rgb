@@ -1,74 +1,33 @@
-# Data analysis
-- Document here the project: conv_rbg
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+# A convolutional model to extract RGB features from given image/s
 
-Please document the project the better you can.
 
-# Startup the project
-
-The initial setup.
-
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
-
-Unittest test:
-```bash
-make clean install test
-```
-
-Check for conv_rbg in gitlab.com/{group}.
-If your project is not set please add it:
-
-- Create a new project on `gitlab.com/{group}/conv_rbg`
-- Then populate it:
-
-```bash
-##   e.g. if group is "{group}" and project_name is "conv_rbg"
-git remote add origin git@github.com:{group}/conv_rbg.git
-git push -u origin master
-git push -u origin --tags
-```
-
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-conv_rbg-run
-```
-
-# Install
-
-Go to `https://github.com/{group}/conv_rbg` to see the project, manage issues,
-setup you ssh public key, ...
-
-Create a python3 virtualenv and activate it:
-
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
-```
-
+## Install
 Clone the project and install it:
 
-```bash
-git clone git@github.com:{group}/conv_rbg.git
-cd conv_rbg
-pip install -r requirements.txt
-make clean install test                # install and test
 ```
-Functionnal test with a script:
+git clone git@github.com:alecsharpie/conv_rgb.git
+cd conv_rgb
+make install # or `pip install .`
+```
 
-```bash
-cd
-mkdir tmp
-cd tmp
-conv_rbg-run
+## Example
+
+```python
+from conv_rgb.model import ConvRGB
+import numpy as np
+from PIL import Image
+
+model = ConvRGB(input_shape = (128, 128), n_cut = 3)
+
+img = Image.open(image.png).resize((128, 128))
+
+X = np.expand_dims(img, axis = 0)
+
+model(X) # X should be shape (n_samples, n_width, n_height, 3 channels)
 ```
+
+ConvRGB: Init parameters
+ - input_shape = tuple (width, height)
+ - n_cut = number of slices in each side of the grid, each cell of the grid produces 3 colour features (R, G, B) eg 3 will create a 3x3 grid and so 9 colour patches -> 27 colour features
+Eg. n_cuts = 3
+![n_cut Example](n_cut_example.png "Number of cuts")
