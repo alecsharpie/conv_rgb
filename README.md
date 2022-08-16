@@ -28,6 +28,11 @@ model(X) # X should be shape (n_samples, n_width, n_height, 3 channels)
 
 ConvRGB: Init parameters
  - input_shape = tuple (width, height)
- - n_cut = number of slices in each side of the grid, each cell of the grid produces 3 colour features (R, G, B) eg 3 will create a 3x3 grid and so 9 colour patches -> 27 colour features
+ - n_cut = number of slices in each side of the grid, each cell of the grid produces 3 colour features (R, G, B)
+
 Eg. n_cuts = 3
-![n_cut Example](n_cut_example.png "Number of cuts")
+create a 3x3 grid of 9 colour patches
+3 channels (R, G, B) for each patch
+total 27 colour features
+
+![n_cut Example](https://github.com/alecsharpie/conv_rgb/blob/master/n_cuts_example.png)
